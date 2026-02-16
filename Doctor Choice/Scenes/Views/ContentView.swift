@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Doctor Choice
-//
-//  Created by Sasha on 16.02.26.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -16,6 +9,12 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            for family in UIFont.familyNames.sorted() {
+                let names = UIFont.fontNames(forFamilyName: family)
+                print("Family: \(family), Font names: \(names)")
+            }
+        }
     }
 }
 
