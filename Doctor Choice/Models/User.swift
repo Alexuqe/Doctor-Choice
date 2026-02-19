@@ -22,7 +22,7 @@ struct User: Decodable, Hashable, Equatable {
     let rank: Int
     let scientificDegreeLabel: String
     let categoryLabel: String
-    let isFavorite: Bool
+    var isFavorite: Bool
 
     enum CodingKeys: String, CodingKey {
         case id

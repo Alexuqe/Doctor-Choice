@@ -10,8 +10,12 @@ import SwiftUI
 @main
 struct Doctor_ChoiceApp: App {
     var body: some Scene {
+        let cache = CacheService()
+        let network = NetworkService(cache: cache)
+        let pediatricVM = PediatriciansViewModel(networkService: network)
+
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: pediatricVM)
         }
     }
 }

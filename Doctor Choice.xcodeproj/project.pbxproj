@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE4415522F467715000827A4 /* ReviewStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415512F46770E000827A4 /* ReviewStars.swift */; };
+		CE4415542F467999000827A4 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415532F467991000827A4 /* FavoriteButton.swift */; };
+		CE4415572F467F0B000827A4 /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415562F467EFD000827A4 /* Extension + String.swift */; };
 		CEE616432F4371E800499D4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE6163F2F4371E800499D4B /* Assets.xcassets */; };
 		CEE616442F4371E800499D4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE616402F4371E800499D4B /* ContentView.swift */; };
 		CEE616452F4371E800499D4B /* Doctor_ChoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE616412F4371E800499D4B /* Doctor_ChoiceApp.swift */; };
@@ -32,10 +35,14 @@
 		CEE6167C2F43B3FE00499D4B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6167B2F43B3F900499D4B /* NetworkError.swift */; };
 		CEE6167E2F43B53200499D4B /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6167D2F43B52A00499D4B /* NetworkServiceProtocol.swift */; };
 		CEE616802F43C53200499D4B /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6167F2F43C52700499D4B /* NetworkConfiguration.swift */; };
-		CEE616822F43C76200499D4B /* Extension + JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE616812F43C75600499D4B /* Extension + JSONDecoder.swift */; };
+		CEE616852F46548200499D4B /* PediatriciansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE616842F46548100499D4B /* PediatriciansViewModel.swift */; };
+		CEE6168B2F466A8800499D4B /* DoctorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6168A2F466A8400499D4B /* DoctorCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE4415512F46770E000827A4 /* ReviewStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStars.swift; sourceTree = "<group>"; };
+		CE4415532F467991000827A4 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		CE4415562F467EFD000827A4 /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
 		CEE616312F4371CC00499D4B /* Doctor Choice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doctor Choice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE6163F2F4371E800499D4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE616402F4371E800499D4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,7 +70,8 @@
 		CEE6167B2F43B3F900499D4B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CEE6167D2F43B52A00499D4B /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		CEE6167F2F43C52700499D4B /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
-		CEE616812F43C75600499D4B /* Extension + JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + JSONDecoder.swift"; sourceTree = "<group>"; };
+		CEE616842F46548100499D4B /* PediatriciansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PediatriciansViewModel.swift; sourceTree = "<group>"; };
+		CEE6168A2F466A8400499D4B /* DoctorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE4415502F467703000827A4 /* ReviewStars */ = {
+			isa = PBXGroup;
+			children = (
+				CE4415512F46770E000827A4 /* ReviewStars.swift */,
+			);
+			path = ReviewStars;
+			sourceTree = "<group>";
+		};
+		CE4415552F46799E000827A4 /* FavoriteButton */ = {
+			isa = PBXGroup;
+			children = (
+				CE4415532F467991000827A4 /* FavoriteButton.swift */,
+			);
+			path = FavoriteButton;
+			sourceTree = "<group>";
+		};
 		CEE616282F4371CC00499D4B = {
 			isa = PBXGroup;
 			children = (
@@ -96,8 +120,10 @@
 		CEE616422F4371E800499D4B /* Doctor Choice */ = {
 			isa = PBXGroup;
 			children = (
+				CEE616882F466A6200499D4B /* Components */,
 				CEE6165B2F43799F00499D4B /* Doctor-Choice-Info.plist */,
 				CEE616472F43736400499D4B /* App */,
+				CEE6165D2F43800500499D4B /* Models */,
 				CEE616462F43735D00499D4B /* Scenes */,
 				CEE616702F43961400499D4B /* Infrastructure */,
 				CEE616482F43736C00499D4B /* Resources */,
@@ -109,8 +135,7 @@
 		CEE616462F43735D00499D4B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				CEE6165D2F43800500499D4B /* Models */,
-				CEE6165C2F437FFB00499D4B /* Views */,
+				CEE616872F466A4B00499D4B /* PediatricScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -146,7 +171,7 @@
 		CEE6164D2F43745300499D4B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CEE616812F43C75600499D4B /* Extension + JSONDecoder.swift */,
+				CE4415562F467EFD000827A4 /* Extension + String.swift */,
 				CEE6164B2F43739500499D4B /* Color + HEX.swift */,
 			);
 			path = Extensions;
@@ -180,7 +205,7 @@
 		CEE6165C2F437FFB00499D4B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEE616402F4371E800499D4B /* ContentView.swift */,
+				CEE616862F466A1D00499D4B /* PediatricView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,14 +214,14 @@
 			isa = PBXGroup;
 			children = (
 				CEE6165E2F43800D00499D4B /* Pediatricians.swift */,
+				CEE616622F43953100499D4B /* Data.swift */,
+				CEE616602F43951200499D4B /* User.swift */,
 				CEE6166E2F4395AA00499D4B /* FreeReceptionTime.swift */,
 				CEE6166C2F43959000499D4B /* WorkExperience.swift */,
 				CEE6166A2F43957300499D4B /* HigherEducation.swift */,
 				CEE616682F43956100499D4B /* EducationType.swift */,
 				CEE616662F43955100499D4B /* Rating.swift */,
 				CEE616642F43954000499D4B /* Specialization.swift */,
-				CEE616622F43953100499D4B /* Data.swift */,
-				CEE616602F43951200499D4B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,6 +254,49 @@
 				CEE616752F439D4800499D4B /* NetworkService.swift */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		CEE616832F464F0600499D4B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEE616842F46548100499D4B /* PediatriciansViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CEE616862F466A1D00499D4B /* PediatricView */ = {
+			isa = PBXGroup;
+			children = (
+				CEE616402F4371E800499D4B /* ContentView.swift */,
+			);
+			path = PediatricView;
+			sourceTree = "<group>";
+		};
+		CEE616872F466A4B00499D4B /* PediatricScene */ = {
+			isa = PBXGroup;
+			children = (
+				CEE616832F464F0600499D4B /* ViewModel */,
+				CEE6165C2F437FFB00499D4B /* Views */,
+			);
+			path = PediatricScene;
+			sourceTree = "<group>";
+		};
+		CEE616882F466A6200499D4B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CE4415552F46799E000827A4 /* FavoriteButton */,
+				CE4415502F467703000827A4 /* ReviewStars */,
+				CEE616892F466A7000499D4B /* DoctorCard */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CEE616892F466A7000499D4B /* DoctorCard */ = {
+			isa = PBXGroup;
+			children = (
+				CEE6168A2F466A8400499D4B /* DoctorCard.swift */,
+			);
+			path = DoctorCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,7 +374,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE616822F43C76200499D4B /* Extension + JSONDecoder.swift in Sources */,
 				CEE6164C2F4373A200499D4B /* Color + HEX.swift in Sources */,
 				CEE616442F4371E800499D4B /* ContentView.swift in Sources */,
 				CEE616782F43B37F00499D4B /* APIResponse.swift in Sources */,
@@ -319,15 +386,20 @@
 				CEE616692F43956500499D4B /* EducationType.swift in Sources */,
 				CEE616452F4371E800499D4B /* Doctor_ChoiceApp.swift in Sources */,
 				CEE616802F43C53200499D4B /* NetworkConfiguration.swift in Sources */,
+				CEE616852F46548200499D4B /* PediatriciansViewModel.swift in Sources */,
 				CEE6166F2F4395AC00499D4B /* FreeReceptionTime.swift in Sources */,
+				CE4415522F467715000827A4 /* ReviewStars.swift in Sources */,
 				CEE616762F439D4C00499D4B /* NetworkService.swift in Sources */,
+				CEE6168B2F466A8800499D4B /* DoctorCard.swift in Sources */,
 				CEE616502F43746E00499D4B /* ColorStyles.swift in Sources */,
+				CE4415572F467F0B000827A4 /* Extension + String.swift in Sources */,
 				CEE6165F2F43801200499D4B /* Pediatricians.swift in Sources */,
 				CEE6167A2F43B3C400499D4B /* HTTPMethod.swift in Sources */,
 				CEE616612F43951500499D4B /* User.swift in Sources */,
 				CEE6166D2F43959200499D4B /* WorkExperience.swift in Sources */,
 				CEE616632F43953300499D4B /* Data.swift in Sources */,
 				CEE6167C2F43B3FE00499D4B /* NetworkError.swift in Sources */,
+				CE4415542F467999000827A4 /* FavoriteButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

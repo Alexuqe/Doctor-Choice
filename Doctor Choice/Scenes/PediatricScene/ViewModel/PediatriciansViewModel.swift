@@ -1,4 +1,5 @@
 import Observation
+import Foundation
 
 @MainActor
 @Observable final class PediatriciansViewModel {
@@ -7,9 +8,9 @@ import Observation
     var isRefreshing = false
     var canLoadMore = true
 
-    @ObservationIgnored private var model: [User] = []
+    /*@ObservationIgnored*/ /*private*/ var model: [User] = []
     @ObservationIgnored private var currentEnd = 0
-    @ObservationIgnored private let pageSize = 5
+    @ObservationIgnored private let pageSize = 8
     @ObservationIgnored private var debounceTask: Task<Void, Never>?
 
     @ObservationIgnored private let networkService: NetworkServiceProtocol
@@ -47,7 +48,7 @@ import Observation
 
     func prefetchIsNeeded(_ user: User) {
         guard let index = visible.firstIndex(of: user) else { return }
-        if index >= visible.count - 2 {
+        if index >= visible.count - 1 {
             loadMoreDebounced()
         }
     }

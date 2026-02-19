@@ -9,7 +9,6 @@ protocol NetworkConfigurable {
     var defaultCacheTTL: TimeInterval { get }
     var maxCacheSize: Int { get }
     var defaultHeaders: [String: String] { get }
-    var jsonDecoder: JSONDecoder { get }
 }
 
 struct DefaultNetworkConfiguration: NetworkConfigurable, Sendable {
@@ -21,7 +20,6 @@ struct DefaultNetworkConfiguration: NetworkConfigurable, Sendable {
     var defaultCacheTTL: TimeInterval
     var maxCacheSize: Int
     var defaultHeaders: [String: String]
-    var jsonDecoder: JSONDecoder
 
     init(
         timeoutInterval: TimeInterval = 30.0,
@@ -31,8 +29,7 @@ struct DefaultNetworkConfiguration: NetworkConfigurable, Sendable {
         cachingEnabled: Bool = true,
         defaultCacheTTL: TimeInterval = 300,
         maxCacheSize: Int = 50 * 1024 * 1024,
-        defaultHeaders: [String: String] = [:],
-        jsonDecoder: JSONDecoder = .default
+        defaultHeaders: [String: String] = [:]
     ) {
         self.timeoutInterval = timeoutInterval
         self.maxRetryAttempts = maxRetryAttempts
@@ -42,7 +39,6 @@ struct DefaultNetworkConfiguration: NetworkConfigurable, Sendable {
         self.defaultCacheTTL = defaultCacheTTL
         self.maxCacheSize = maxCacheSize
         self.defaultHeaders = defaultHeaders
-        self.jsonDecoder = jsonDecoder
     }
 }
 
@@ -55,7 +51,6 @@ struct ProductionNetworkConfiguration: NetworkConfigurable, Sendable {
     var defaultCacheTTL: TimeInterval
     var maxCacheSize: Int
     var defaultHeaders: [String: String]
-    var jsonDecoder: JSONDecoder
 
     init(
         timeoutInterval: TimeInterval = 5.0,
@@ -65,8 +60,7 @@ struct ProductionNetworkConfiguration: NetworkConfigurable, Sendable {
         cachingEnabled: Bool = false,
         defaultCacheTTL: TimeInterval = 60 * 60 * 24,
         maxCacheSize: Int = 50 * 1024 * 1024,
-        defaultHeaders: [String: String] = [:],
-        jsonDecoder: JSONDecoder = .default
+        defaultHeaders: [String: String] = [:]
     ) {
         self.timeoutInterval = timeoutInterval
         self.maxRetryAttempts = maxRetryAttempts
@@ -76,7 +70,6 @@ struct ProductionNetworkConfiguration: NetworkConfigurable, Sendable {
         self.defaultCacheTTL = defaultCacheTTL
         self.maxCacheSize = maxCacheSize
         self.defaultHeaders = defaultHeaders
-        self.jsonDecoder = jsonDecoder
     }
 }
 

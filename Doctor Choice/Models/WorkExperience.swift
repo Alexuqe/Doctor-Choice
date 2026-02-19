@@ -4,8 +4,8 @@ struct WorkExperience: Decodable, Hashable, Equatable  {
     let id: Int
     let organization: String
     let position: String
-    let startDate: Date?
-    let endDate: Date?
+    let startDate: TimeInterval?
+    let endDate: TimeInterval?
     let untilNow: Bool?
 
     enum WorkExperienceCodingKeys: String, CodingKey {

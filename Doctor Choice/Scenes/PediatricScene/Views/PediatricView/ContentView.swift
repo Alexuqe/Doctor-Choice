@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var viewModel: PediatriciansViewModel
+    @Bindable var viewModel: PediatriciansViewModel
     @State var tfText: String = ""
 
     var body: some View {
@@ -23,6 +23,17 @@ struct ContentView: View {
             .background {
                 RoundedRectangle(cornerRadius: 8)
                 .strokeBorder(ColorStyles.grey, lineWidth: 1)
+            }
+
+            ScrollView {
+                LazyVStack {
+                    ForEach($viewModel.model, id: \.id) { doctor in
+                        DoctorCard(doctor: doctor)
+                            .onAppear {
+                                viewModel.prefetchIsNeeded(doctor.wrappedValue)
+                            }
+                    }
+                }
             }
 
             Spacer()
