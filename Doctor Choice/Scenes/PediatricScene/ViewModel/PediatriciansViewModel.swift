@@ -7,50 +7,51 @@ import Foundation
     var isLoading = false
     var isRefreshing = false
     var canLoadMore = true
+    var selectedSegment: Selection = .experience {
+        didSet {
+            filtrated()
+        }
+    }
 
-    /*@ObservationIgnored*/ /*private*/ var model: [User] = []
+    let tabs: [Selection] = Selection.allCases
+
+
+    var searchText: String = "" {
+        didSet { searchDebounced() }
+    }
+
+    @ObservationIgnored private var model: [User] = []
+    @ObservationIgnored private var filtred: [User] = []
     @ObservationIgnored private var currentEnd = 0
-    @ObservationIgnored private let pageSize = 8
+    @ObservationIgnored private let pageSize = 3
     @ObservationIgnored private var debounceTask: Task<Void, Never>?
+    @ObservationIgnored private var searchedTask: Task<Void, Never>?
 
     @ObservationIgnored private let networkService: NetworkServiceProtocol
 
     init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
 
-        load()
+        Task { await load() }
     }
 
-    func load() {
-        Task {
-            guard !isLoading else { return }
-            isLoading = true
-            
-            defer { isLoading = false }
-            
-            do {
-                let pediatric: Pediatricians = try await networkService.fetchUsers(url: .default)
-                model = pediatric.data.users
-                print(model)
-                resetPaging()
-                await appendNextPage()
-            } catch {
-                print("Ошибка обновления:", error)
-            }
+    func refresh() async {
+        guard !isRefreshing else { return }
+        isRefreshing = true
+
+        print("🔵 refresh start")
+
+        debounceTask?.cancel()
+        searchedTask?.cancel()
+        isLoading = false
+        canLoadMore = true
+
+        defer {
+            isRefreshing = false
+            print("🟢 refresh end")
         }
-    }
 
-    private func resetPaging() {
-        visible.removeAll()
-        currentEnd = 0
-        canLoadMore = !model.isEmpty
-    }
-
-    func prefetchIsNeeded(_ user: User) {
-        guard let index = visible.firstIndex(of: user) else { return }
-        if index >= visible.count - 1 {
-            loadMoreDebounced()
-        }
+        await load()
     }
 
     func loadMoreDebounced() {
@@ -63,13 +64,36 @@ import Foundation
         }
     }
 
-    func appendNextPage() async {
-        guard canLoadMore, !isLoading else { return }
-        isLoading = true
+    private func load() async {
+        print("⬇️ load() called")
 
+        do {
+            let pediatric: Pediatricians = try await networkService.fetchUsers(url: .default)
+            model = pediatric.data.users
+            print("📦 loaded model:", model.count)
+
+            applyFilter()
+            print("🔍 filtered:", filtred.count)
+
+            resetPaging()
+
+            await Task.yield()
+            
+            await appendNextPage()
+            print("👀 visible:", visible.count)
+        } catch {
+            print("❌ Ошибка обновления:", error)
+        }
+    }
+
+
+    private func appendNextPage() async {
+        guard canLoadMore, (!isLoading || isRefreshing) else { return }
+
+        isLoading = true
         defer { isLoading = false }
 
-        let remaining = model.count - currentEnd
+        let remaining = filtred.count - currentEnd
         let loadCount = min(pageSize, remaining)
 
         guard loadCount > 0 else {
@@ -78,12 +102,59 @@ import Foundation
         }
 
         let nextEnd = currentEnd + loadCount
-        let chunk = Array(model[currentEnd..<nextEnd])
+        let chunk = Array(filtred[currentEnd..<nextEnd])
 
         visible.append(contentsOf: chunk)
-
         currentEnd = nextEnd
-        canLoadMore = currentEnd < model.count
+        canLoadMore = currentEnd < filtred.count
+    }
+
+    private func resetPaging() {
+        visible.removeAll()
+        currentEnd = 0
+        canLoadMore = !filtred.isEmpty
+    }
+
+    private func applyFilter() {
+        let text = searchText
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+
+        if text.isEmpty {
+            filtred = model
+        } else {
+            filtred = model.filter { user in
+                user.firstName.lowercased().hasPrefix(text)
+            }
+        }
+    }
+
+    private func searchDebounced() {
+        searchedTask?.cancel()
+        searchedTask = Task { [weak self] in
+            try? await Task.sleep(nanoseconds: 300_000_000)
+
+            guard let self else { return }
+            applyFilter()
+            resetPaging()
+
+            await appendNextPage()
+        }
+    }
+
+    private func filtrated() {
+        switch selectedSegment {
+            case .price:
+                visible.sort { $0.hospitalPrice ?? 0 > $1.hospitalPrice ?? 0 }
+            case .experience:
+                visible.sort { ($0.workExperience?.count ?? 0) < ($1.workExperience?.count ?? 0) }
+            case .rating:
+                visible.sort { $0.rank > $1.rank }
+        }
+
+        Task {
+            await appendNextPage()
+        }
     }
 
 }

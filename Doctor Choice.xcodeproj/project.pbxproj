@@ -7,9 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE39D1972F478AC200BD51A3 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1962F478ABB00BD51A3 /* DIContainer.swift */; };
+		CE39D19F2F47AB4100BD51A3 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D19C2F47AB4100BD51A3 /* Selection.swift */; };
+		CE39D1A02F47AB4100BD51A3 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D19A2F47AB4100BD51A3 /* SelectionView.swift */; };
+		CE39D1A12F47AB4100BD51A3 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1992F47AB4100BD51A3 /* IndicatorView.swift */; };
+		CE39D1A22F47AB4100BD51A3 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1982F47AB4100BD51A3 /* SegmentedControl.swift */; };
+		CE39D1A42F47AB7C00BD51A3 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1A32F47AB7400BD51A3 /* Extension + View.swift */; };
+		CE39D1AA2F47AB9A00BD51A3 /* SelectionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1A62F47AB9A00BD51A3 /* SelectionAnimation.swift */; };
+		CE39D1AB2F47AB9A00BD51A3 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1A72F47AB9A00BD51A3 /* Preference.swift */; };
+		CE39D1B42F47D30900BD51A3 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1B12F47D30900BD51A3 /* TabItemView.swift */; };
+		CE39D1B52F47D30900BD51A3 /* TabItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1AF2F47D30900BD51A3 /* TabItemsModel.swift */; };
+		CE39D1B62F47D30900BD51A3 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1AD2F47D30900BD51A3 /* TabBarView.swift */; };
+		CE39D1B72F47D30900BD51A3 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1AC2F47D30900BD51A3 /* TabBar.swift */; };
+		CE39D1BA2F47D49800BD51A3 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1B92F47D49400BD51A3 /* MainScene.swift */; };
+		CE39D1BE2F47D5C300BD51A3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1BD2F47D5BD00BD51A3 /* MainViewModel.swift */; };
 		CE4415522F467715000827A4 /* ReviewStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415512F46770E000827A4 /* ReviewStars.swift */; };
 		CE4415542F467999000827A4 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415532F467991000827A4 /* FavoriteButton.swift */; };
 		CE4415572F467F0B000827A4 /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415562F467EFD000827A4 /* Extension + String.swift */; };
+		CE44155A2F4779ED000827A4 /* AppointmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415592F4779E6000827A4 /* AppointmentButton.swift */; };
 		CEE616432F4371E800499D4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE6163F2F4371E800499D4B /* Assets.xcassets */; };
 		CEE616442F4371E800499D4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE616402F4371E800499D4B /* ContentView.swift */; };
 		CEE616452F4371E800499D4B /* Doctor_ChoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE616412F4371E800499D4B /* Doctor_ChoiceApp.swift */; };
@@ -40,9 +55,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE39D1962F478ABB00BD51A3 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		CE39D1982F47AB4100BD51A3 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		CE39D1992F47AB4100BD51A3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		CE39D19A2F47AB4100BD51A3 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		CE39D19C2F47AB4100BD51A3 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
+		CE39D1A32F47AB7400BD51A3 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
+		CE39D1A62F47AB9A00BD51A3 /* SelectionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionAnimation.swift; sourceTree = "<group>"; };
+		CE39D1A72F47AB9A00BD51A3 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		CE39D1AC2F47D30900BD51A3 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		CE39D1AD2F47D30900BD51A3 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		CE39D1AF2F47D30900BD51A3 /* TabItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemsModel.swift; sourceTree = "<group>"; };
+		CE39D1B12F47D30900BD51A3 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
+		CE39D1B92F47D49400BD51A3 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		CE39D1BD2F47D5BD00BD51A3 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		CE4415512F46770E000827A4 /* ReviewStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStars.swift; sourceTree = "<group>"; };
 		CE4415532F467991000827A4 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		CE4415562F467EFD000827A4 /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
+		CE4415592F4779E6000827A4 /* AppointmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentButton.swift; sourceTree = "<group>"; };
 		CEE616312F4371CC00499D4B /* Doctor Choice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doctor Choice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE6163F2F4371E800499D4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE616402F4371E800499D4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +115,109 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE39D1952F478A8700BD51A3 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1962F478ABB00BD51A3 /* DIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		CE39D19B2F47AB4100BD51A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1982F47AB4100BD51A3 /* SegmentedControl.swift */,
+				CE39D1992F47AB4100BD51A3 /* IndicatorView.swift */,
+				CE39D19A2F47AB4100BD51A3 /* SelectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE39D19D2F47AB4100BD51A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D19C2F47AB4100BD51A3 /* Selection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE39D19E2F47AB4100BD51A3 /* SegmentedControll */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D19B2F47AB4100BD51A3 /* Views */,
+				CE39D19D2F47AB4100BD51A3 /* Model */,
+			);
+			path = SegmentedControll;
+			sourceTree = "<group>";
+		};
+		CE39D1A82F47AB9A00BD51A3 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1A62F47AB9A00BD51A3 /* SelectionAnimation.swift */,
+				CE39D1A72F47AB9A00BD51A3 /* Preference.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		CE39D1AE2F47D30900BD51A3 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1AC2F47D30900BD51A3 /* TabBar.swift */,
+				CE39D1AD2F47D30900BD51A3 /* TabBarView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CE39D1B02F47D30900BD51A3 /* TabItemModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1AF2F47D30900BD51A3 /* TabItemsModel.swift */,
+			);
+			path = TabItemModel;
+			sourceTree = "<group>";
+		};
+		CE39D1B22F47D30900BD51A3 /* TabItem */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1B12F47D30900BD51A3 /* TabItemView.swift */,
+			);
+			path = TabItem;
+			sourceTree = "<group>";
+		};
+		CE39D1B32F47D30900BD51A3 /* TabItems */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1B02F47D30900BD51A3 /* TabItemModel */,
+				CE39D1B22F47D30900BD51A3 /* TabItem */,
+			);
+			path = TabItems;
+			sourceTree = "<group>";
+		};
+		CE39D1B82F47D48400BD51A3 /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1BC2F47D4BA00BD51A3 /* ViewModel */,
+				CE39D1BB2F47D4B400BD51A3 /* View */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		CE39D1BB2F47D4B400BD51A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1B92F47D49400BD51A3 /* MainScene.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE39D1BC2F47D4BA00BD51A3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE39D1BD2F47D5BD00BD51A3 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CE4415502F467703000827A4 /* ReviewStars */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +232,14 @@
 				CE4415532F467991000827A4 /* FavoriteButton.swift */,
 			);
 			path = FavoriteButton;
+			sourceTree = "<group>";
+		};
+		CE4415582F4779CD000827A4 /* AppointmentButton */ = {
+			isa = PBXGroup;
+			children = (
+				CE4415592F4779E6000827A4 /* AppointmentButton.swift */,
+			);
+			path = AppointmentButton;
 			sourceTree = "<group>";
 		};
 		CEE616282F4371CC00499D4B = {
@@ -135,6 +276,7 @@
 		CEE616462F43735D00499D4B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CE39D1B82F47D48400BD51A3 /* MainScene */,
 				CEE616872F466A4B00499D4B /* PediatricScene */,
 			);
 			path = Scenes;
@@ -163,6 +305,7 @@
 		CEE6164A2F43738B00499D4B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CE39D1A82F47AB9A00BD51A3 /* ViewModifiers */,
 				CEE6164D2F43745300499D4B /* Extensions */,
 			);
 			path = Helpers;
@@ -171,6 +314,7 @@
 		CEE6164D2F43745300499D4B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CE39D1A32F47AB7400BD51A3 /* Extension + View.swift */,
 				CE4415562F467EFD000827A4 /* Extension + String.swift */,
 				CEE6164B2F43739500499D4B /* Color + HEX.swift */,
 			);
@@ -202,12 +346,12 @@
 			path = TextStyles;
 			sourceTree = "<group>";
 		};
-		CEE6165C2F437FFB00499D4B /* Views */ = {
+		CEE6165C2F437FFB00499D4B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CEE616862F466A1D00499D4B /* PediatricView */,
+				CEE616402F4371E800499D4B /* ContentView.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		CEE6165D2F43800500499D4B /* Models */ = {
@@ -229,6 +373,7 @@
 		CEE616702F43961400499D4B /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				CE39D1952F478A8700BD51A3 /* DIContainer */,
 				CEE616742F439D4100499D4B /* NetworkService */,
 				CEE616732F439D3700499D4B /* CacheService */,
 			);
@@ -264,19 +409,11 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		CEE616862F466A1D00499D4B /* PediatricView */ = {
-			isa = PBXGroup;
-			children = (
-				CEE616402F4371E800499D4B /* ContentView.swift */,
-			);
-			path = PediatricView;
-			sourceTree = "<group>";
-		};
 		CEE616872F466A4B00499D4B /* PediatricScene */ = {
 			isa = PBXGroup;
 			children = (
 				CEE616832F464F0600499D4B /* ViewModel */,
-				CEE6165C2F437FFB00499D4B /* Views */,
+				CEE6165C2F437FFB00499D4B /* View */,
 			);
 			path = PediatricScene;
 			sourceTree = "<group>";
@@ -284,6 +421,10 @@
 		CEE616882F466A6200499D4B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CE39D1AE2F47D30900BD51A3 /* TabBar */,
+				CE39D1B32F47D30900BD51A3 /* TabItems */,
+				CE39D19E2F47AB4100BD51A3 /* SegmentedControll */,
+				CE4415582F4779CD000827A4 /* AppointmentButton */,
 				CE4415552F46799E000827A4 /* FavoriteButton */,
 				CE4415502F467703000827A4 /* ReviewStars */,
 				CEE616892F466A7000499D4B /* DoctorCard */,
@@ -374,6 +515,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE39D1972F478AC200BD51A3 /* DIContainer.swift in Sources */,
+				CE39D1AA2F47AB9A00BD51A3 /* SelectionAnimation.swift in Sources */,
+				CE39D1AB2F47AB9A00BD51A3 /* Preference.swift in Sources */,
 				CEE6164C2F4373A200499D4B /* Color + HEX.swift in Sources */,
 				CEE616442F4371E800499D4B /* ContentView.swift in Sources */,
 				CEE616782F43B37F00499D4B /* APIResponse.swift in Sources */,
@@ -389,16 +533,28 @@
 				CEE616852F46548200499D4B /* PediatriciansViewModel.swift in Sources */,
 				CEE6166F2F4395AC00499D4B /* FreeReceptionTime.swift in Sources */,
 				CE4415522F467715000827A4 /* ReviewStars.swift in Sources */,
+				CE44155A2F4779ED000827A4 /* AppointmentButton.swift in Sources */,
 				CEE616762F439D4C00499D4B /* NetworkService.swift in Sources */,
 				CEE6168B2F466A8800499D4B /* DoctorCard.swift in Sources */,
+				CE39D19F2F47AB4100BD51A3 /* Selection.swift in Sources */,
+				CE39D1A02F47AB4100BD51A3 /* SelectionView.swift in Sources */,
+				CE39D1A12F47AB4100BD51A3 /* IndicatorView.swift in Sources */,
+				CE39D1A22F47AB4100BD51A3 /* SegmentedControl.swift in Sources */,
 				CEE616502F43746E00499D4B /* ColorStyles.swift in Sources */,
+				CE39D1BA2F47D49800BD51A3 /* MainScene.swift in Sources */,
+				CE39D1B42F47D30900BD51A3 /* TabItemView.swift in Sources */,
+				CE39D1B52F47D30900BD51A3 /* TabItemsModel.swift in Sources */,
+				CE39D1B62F47D30900BD51A3 /* TabBarView.swift in Sources */,
+				CE39D1B72F47D30900BD51A3 /* TabBar.swift in Sources */,
 				CE4415572F467F0B000827A4 /* Extension + String.swift in Sources */,
+				CE39D1A42F47AB7C00BD51A3 /* Extension + View.swift in Sources */,
 				CEE6165F2F43801200499D4B /* Pediatricians.swift in Sources */,
 				CEE6167A2F43B3C400499D4B /* HTTPMethod.swift in Sources */,
 				CEE616612F43951500499D4B /* User.swift in Sources */,
 				CEE6166D2F43959200499D4B /* WorkExperience.swift in Sources */,
 				CEE616632F43953300499D4B /* Data.swift in Sources */,
 				CEE6167C2F43B3FE00499D4B /* NetworkError.swift in Sources */,
+				CE39D1BE2F47D5C300BD51A3 /* MainViewModel.swift in Sources */,
 				CE4415542F467999000827A4 /* FavoriteButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

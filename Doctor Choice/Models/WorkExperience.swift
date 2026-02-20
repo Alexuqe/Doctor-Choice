@@ -1,6 +1,10 @@
 import Foundation
 
-struct WorkExperience: Decodable, Hashable, Equatable  {
+struct WorkExperience: Decodable, Hashable, Equatable, Comparable  {
+    static func < (lhs: WorkExperience, rhs: WorkExperience) -> Bool {
+        lhs == rhs
+    }
+
     let id: Int
     let organization: String
     let position: String

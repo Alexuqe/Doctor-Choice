@@ -3,10 +3,17 @@ import SwiftUI
 struct DoctorCard: View {
     @Binding var doctor: User
     @State private var didTimeOut = false
+
     private let timeOut: TimeInterval = 3
+    private var price = 0
+
+    init(doctor: Binding<User>) {
+        self._doctor = doctor
+        price = minPrice()
+    }
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top, spacing: 16) {
                 avatar
                 content
@@ -14,6 +21,19 @@ struct DoctorCard: View {
                 FavoriteButton(isFavorite: $doctor.isFavorite)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+
+            AppointmentButton(
+                action: { },
+                receptionTime: doctor.nearestReceptionTime != nil ? true : false
+            )
+            .padding(.top, 7)
+        }
+        .padding(.vertical, 20)
+        .padding(.horizontal, 16)
+        .background {
+            RoundedRectangle(cornerRadius: 8)
+            .stroke(lineWidth: 1)
+            .fill(ColorStyles.grey)
         }
         .task {
            await startTimeOut()
@@ -49,48 +69,57 @@ extension DoctorCard {
     var defaultImage: some View {
         Image(systemName: "person.crop.circle.badge.exclamationmark")
         .resizable()
-        .scaledToFill()
+        .scaledToFit()
         .foregroundStyle(ColorStyles.grey)
     }
 
     var content: some View {
-        VStack(alignment: .leading) {
-            Text("\(doctor.lastName)\n\(doctor.firstName + doctor.patronymic)")
+        VStack(alignment: .leading, spacing: 8) {
+            Text(doctor.scientificDegreeLabel.capitalized)
+            .font(FontStyle.h4.font)
+            .foregroundStyle(ColorStyles.black)
+
+            Text("\(doctor.lastName)\n\(doctor.firstName) \(doctor.patronymic)")
             .font(FontStyle.h4.font)
             .foregroundStyle(ColorStyles.black)
 
             ReviewStars(rating: doctor.rank)
 
-            if let specialization = doctor.specialization.first,
-               let experience = doctor.workExperience
-            {
-            Text("\(specialization.name)・" + experience.totalWorkExperience())
-            .font(FontStyle.sub2.font)
-            .foregroundStyle(ColorStyles.darkGrey)
-            }
+            specializationTitle
 
-            Text("от \(minPrice()) ₽")
+            Text("от \(price) ₽")
             .font(FontStyle.h4.font)
             .foregroundStyle(ColorStyles.black)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
+
+    var specializationTitle: some View {
+        if let specialization = doctor.specialization.last,
+           let experience = doctor.workExperience
+        {
+        Text("\(specialization.name)・" + experience.totalWorkExperience())
+        .font(FontStyle.sub2.font)
+        .foregroundStyle(ColorStyles.darkGrey)
+        } else {
+            Text("Педиатр・ 0 лет")
+            .font(FontStyle.sub2.font)
+            .foregroundStyle(ColorStyles.darkGrey)
+        }
+    }
+
+
 }
 
 extension DoctorCard {
     private func minPrice() -> Int {
-        var result = 0
-        var minChatPrice = 0
+        var result = Int.max
 
-        if doctor.textChatPrice > 0 || doctor.videoChatPrice > 0 {
-            minChatPrice = min(doctor.textChatPrice, doctor.videoChatPrice)
-        }
+        result = min(doctor.textChatPrice, doctor.videoChatPrice)
 
         if let hospital = doctor.hospitalPrice, let home = doctor.homePrice {
-            if hospital > 0 || home > 0 {
-                let minGeoPrice = min(hospital, home)
-                result = min(minChatPrice, minGeoPrice)
-            }
+            let minGeoPrice = min(hospital, home)
+            result = min(result, minGeoPrice)
         }
 
         return result
@@ -110,5 +139,5 @@ extension DoctorCard {
         networkService: NetworkService(cache: CacheService())
     )
 
-    ContentView(viewModel: viewModel)
+    ContentView(diContainer: DIContainer())
 }

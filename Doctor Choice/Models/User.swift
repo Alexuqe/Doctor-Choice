@@ -1,6 +1,6 @@
 import Foundation
 
-struct User: Decodable, Hashable, Equatable {
+struct User: Decodable, Hashable, Equatable, Identifiable, Comparable {
     let id: UUID
     let firstName: String
     let patronymic: String
@@ -47,5 +47,9 @@ struct User: Decodable, Hashable, Equatable {
         case scientificDegreeLabel = "scientific_degree_label"
         case categoryLabel = "category_label"
         case isFavorite = "is_favorite"
+    }
+
+    static func < (lhs: User, rhs: User) -> Bool {
+        lhs == rhs
     }
 }
