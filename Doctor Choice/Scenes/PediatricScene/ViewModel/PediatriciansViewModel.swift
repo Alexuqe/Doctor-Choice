@@ -1,5 +1,6 @@
 import Observation
 import Foundation
+import SwiftUI
 
 @MainActor
 @Observable final class PediatriciansViewModel {
@@ -28,11 +29,30 @@ import Foundation
     @ObservationIgnored private var searchedTask: Task<Void, Never>?
 
     @ObservationIgnored private let networkService: NetworkServiceProtocol
+    @ObservationIgnored private let router: Routeble
 
-    init(networkService: NetworkServiceProtocol) {
+    init(networkService: NetworkServiceProtocol, router: Routeble) {
         self.networkService = networkService
+        self.router = router
 
         Task { await load() }
+    }
+
+    func openDoctorDetail(for user: User) {
+        router.push(to: .main(.pediatricianDetail(user)))
+    }
+
+    func binding(for user: User) -> Binding<User> {
+        Binding(
+            get: {
+                self.visible.first(where: { $0.id == user.id }) ?? user
+            },
+            set: { updated in
+                if let index = self.visible.firstIndex(where: { $0.id == user.id }) {
+                    self.visible[index] = updated
+                }
+            }
+        )
     }
 
     func refresh() async {
@@ -85,7 +105,6 @@ import Foundation
             print("❌ Ошибка обновления:", error)
         }
     }
-
 
     private func appendNextPage() async {
         guard canLoadMore, (!isLoading || isRefreshing) else { return }

@@ -19,14 +19,18 @@
 		CE39D1B52F47D30900BD51A3 /* TabItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1AF2F47D30900BD51A3 /* TabItemsModel.swift */; };
 		CE39D1B62F47D30900BD51A3 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1AD2F47D30900BD51A3 /* TabBarView.swift */; };
 		CE39D1B72F47D30900BD51A3 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1AC2F47D30900BD51A3 /* TabBar.swift */; };
-		CE39D1BA2F47D49800BD51A3 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1B92F47D49400BD51A3 /* MainScene.swift */; };
-		CE39D1BE2F47D5C300BD51A3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1BD2F47D5BD00BD51A3 /* MainViewModel.swift */; };
+		CE39D1BA2F47D49800BD51A3 /* TabViewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1B92F47D49400BD51A3 /* TabViewScene.swift */; };
+		CE39D1BE2F47D5C300BD51A3 /* TabViewSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39D1BD2F47D5BD00BD51A3 /* TabViewSceneViewModel.swift */; };
 		CE4415522F467715000827A4 /* ReviewStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415512F46770E000827A4 /* ReviewStars.swift */; };
 		CE4415542F467999000827A4 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415532F467991000827A4 /* FavoriteButton.swift */; };
 		CE4415572F467F0B000827A4 /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415562F467EFD000827A4 /* Extension + String.swift */; };
 		CE44155A2F4779ED000827A4 /* AppointmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4415592F4779E6000827A4 /* AppointmentButton.swift */; };
+		CEC5EFB72F49DBC400631C72 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5EFB62F49DBC200631C72 /* Router.swift */; };
+		CEC5EFB92F49EAD800631C72 /* ScenesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5EFB82F49EAD100631C72 /* ScenesModel.swift */; };
+		CEC5EFBB2F49ED0A00631C72 /* DIContainerKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5EFBA2F49ED0000631C72 /* DIContainerKey.swift */; };
+		CEC5EFBD2F49F7BF00631C72 /* PediatricanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5EFBC2F49F7B500631C72 /* PediatricanDetailView.swift */; };
 		CEE616432F4371E800499D4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE6163F2F4371E800499D4B /* Assets.xcassets */; };
-		CEE616442F4371E800499D4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE616402F4371E800499D4B /* ContentView.swift */; };
+		CEE616442F4371E800499D4B /* PediatricianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE616402F4371E800499D4B /* PediatricianView.swift */; };
 		CEE616452F4371E800499D4B /* Doctor_ChoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE616412F4371E800499D4B /* Doctor_ChoiceApp.swift */; };
 		CEE6164C2F4373A200499D4B /* Color + HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6164B2F43739500499D4B /* Color + HEX.swift */; };
 		CEE616502F43746E00499D4B /* ColorStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6164F2F43746A00499D4B /* ColorStyles.swift */; };
@@ -67,15 +71,19 @@
 		CE39D1AD2F47D30900BD51A3 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		CE39D1AF2F47D30900BD51A3 /* TabItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemsModel.swift; sourceTree = "<group>"; };
 		CE39D1B12F47D30900BD51A3 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
-		CE39D1B92F47D49400BD51A3 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
-		CE39D1BD2F47D5BD00BD51A3 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		CE39D1B92F47D49400BD51A3 /* TabViewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewScene.swift; sourceTree = "<group>"; };
+		CE39D1BD2F47D5BD00BD51A3 /* TabViewSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewSceneViewModel.swift; sourceTree = "<group>"; };
 		CE4415512F46770E000827A4 /* ReviewStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStars.swift; sourceTree = "<group>"; };
 		CE4415532F467991000827A4 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		CE4415562F467EFD000827A4 /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
 		CE4415592F4779E6000827A4 /* AppointmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentButton.swift; sourceTree = "<group>"; };
+		CEC5EFB62F49DBC200631C72 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CEC5EFB82F49EAD100631C72 /* ScenesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenesModel.swift; sourceTree = "<group>"; };
+		CEC5EFBA2F49ED0000631C72 /* DIContainerKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainerKey.swift; sourceTree = "<group>"; };
+		CEC5EFBC2F49F7B500631C72 /* PediatricanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PediatricanDetailView.swift; sourceTree = "<group>"; };
 		CEE616312F4371CC00499D4B /* Doctor Choice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doctor Choice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE6163F2F4371E800499D4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CEE616402F4371E800499D4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CEE616402F4371E800499D4B /* PediatricianView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PediatricianView.swift; sourceTree = "<group>"; };
 		CEE616412F4371E800499D4B /* Doctor_ChoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor_ChoiceApp.swift; sourceTree = "<group>"; };
 		CEE6164B2F43739500499D4B /* Color + HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + HEX.swift"; sourceTree = "<group>"; };
 		CEE6164F2F43746A00499D4B /* ColorStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyles.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				CE39D1962F478ABB00BD51A3 /* DIContainer.swift */,
+				CEC5EFBA2F49ED0000631C72 /* DIContainerKey.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -193,19 +202,19 @@
 			path = TabItems;
 			sourceTree = "<group>";
 		};
-		CE39D1B82F47D48400BD51A3 /* MainScene */ = {
+		CE39D1B82F47D48400BD51A3 /* TabViewScene */ = {
 			isa = PBXGroup;
 			children = (
 				CE39D1BC2F47D4BA00BD51A3 /* ViewModel */,
 				CE39D1BB2F47D4B400BD51A3 /* View */,
 			);
-			path = MainScene;
+			path = TabViewScene;
 			sourceTree = "<group>";
 		};
 		CE39D1BB2F47D4B400BD51A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE39D1B92F47D49400BD51A3 /* MainScene.swift */,
+				CE39D1B92F47D49400BD51A3 /* TabViewScene.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,7 +222,7 @@
 		CE39D1BC2F47D4BA00BD51A3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CE39D1BD2F47D5BD00BD51A3 /* MainViewModel.swift */,
+				CE39D1BD2F47D5BD00BD51A3 /* TabViewSceneViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -240,6 +249,15 @@
 				CE4415592F4779E6000827A4 /* AppointmentButton.swift */,
 			);
 			path = AppointmentButton;
+			sourceTree = "<group>";
+		};
+		CEC5EFB52F49DBB800631C72 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5EFB62F49DBC200631C72 /* Router.swift */,
+				CEC5EFB82F49EAD100631C72 /* ScenesModel.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		CEE616282F4371CC00499D4B = {
@@ -276,7 +294,7 @@
 		CEE616462F43735D00499D4B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				CE39D1B82F47D48400BD51A3 /* MainScene */,
+				CE39D1B82F47D48400BD51A3 /* TabViewScene */,
 				CEE616872F466A4B00499D4B /* PediatricScene */,
 			);
 			path = Scenes;
@@ -349,7 +367,8 @@
 		CEE6165C2F437FFB00499D4B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CEE616402F4371E800499D4B /* ContentView.swift */,
+				CEE616402F4371E800499D4B /* PediatricianView.swift */,
+				CEC5EFBC2F49F7B500631C72 /* PediatricanDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +392,7 @@
 		CEE616702F43961400499D4B /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				CEC5EFB52F49DBB800631C72 /* Router */,
 				CE39D1952F478A8700BD51A3 /* DIContainer */,
 				CEE616742F439D4100499D4B /* NetworkService */,
 				CEE616732F439D3700499D4B /* CacheService */,
@@ -519,12 +539,13 @@
 				CE39D1AA2F47AB9A00BD51A3 /* SelectionAnimation.swift in Sources */,
 				CE39D1AB2F47AB9A00BD51A3 /* Preference.swift in Sources */,
 				CEE6164C2F4373A200499D4B /* Color + HEX.swift in Sources */,
-				CEE616442F4371E800499D4B /* ContentView.swift in Sources */,
+				CEE616442F4371E800499D4B /* PediatricianView.swift in Sources */,
 				CEE616782F43B37F00499D4B /* APIResponse.swift in Sources */,
 				CEE616672F43955400499D4B /* Rating.swift in Sources */,
 				CEE6167E2F43B53200499D4B /* NetworkServiceProtocol.swift in Sources */,
 				CEE6166B2F43957500499D4B /* HigherEducation.swift in Sources */,
 				CEE616722F4396F800499D4B /* CacheService.swift in Sources */,
+				CEC5EFB72F49DBC400631C72 /* Router.swift in Sources */,
 				CEE616652F43954400499D4B /* Specialization.swift in Sources */,
 				CEE616542F43777C00499D4B /* TextStyles.swift in Sources */,
 				CEE616692F43956500499D4B /* EducationType.swift in Sources */,
@@ -534,14 +555,17 @@
 				CEE6166F2F4395AC00499D4B /* FreeReceptionTime.swift in Sources */,
 				CE4415522F467715000827A4 /* ReviewStars.swift in Sources */,
 				CE44155A2F4779ED000827A4 /* AppointmentButton.swift in Sources */,
+				CEC5EFBB2F49ED0A00631C72 /* DIContainerKey.swift in Sources */,
+				CEC5EFBD2F49F7BF00631C72 /* PediatricanDetailView.swift in Sources */,
 				CEE616762F439D4C00499D4B /* NetworkService.swift in Sources */,
 				CEE6168B2F466A8800499D4B /* DoctorCard.swift in Sources */,
 				CE39D19F2F47AB4100BD51A3 /* Selection.swift in Sources */,
 				CE39D1A02F47AB4100BD51A3 /* SelectionView.swift in Sources */,
 				CE39D1A12F47AB4100BD51A3 /* IndicatorView.swift in Sources */,
+				CEC5EFB92F49EAD800631C72 /* ScenesModel.swift in Sources */,
 				CE39D1A22F47AB4100BD51A3 /* SegmentedControl.swift in Sources */,
 				CEE616502F43746E00499D4B /* ColorStyles.swift in Sources */,
-				CE39D1BA2F47D49800BD51A3 /* MainScene.swift in Sources */,
+				CE39D1BA2F47D49800BD51A3 /* TabViewScene.swift in Sources */,
 				CE39D1B42F47D30900BD51A3 /* TabItemView.swift in Sources */,
 				CE39D1B52F47D30900BD51A3 /* TabItemsModel.swift in Sources */,
 				CE39D1B62F47D30900BD51A3 /* TabBarView.swift in Sources */,
@@ -554,7 +578,7 @@
 				CEE6166D2F43959200499D4B /* WorkExperience.swift in Sources */,
 				CEE616632F43953300499D4B /* Data.swift in Sources */,
 				CEE6167C2F43B3FE00499D4B /* NetworkError.swift in Sources */,
-				CE39D1BE2F47D5C300BD51A3 /* MainViewModel.swift in Sources */,
+				CE39D1BE2F47D5C300BD51A3 /* TabViewSceneViewModel.swift in Sources */,
 				CE4415542F467999000827A4 /* FavoriteButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

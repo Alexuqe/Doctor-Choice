@@ -1,13 +1,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var viewModel: PediatriciansViewModel
-    @Namespace private var animationNamespace
+    @Bindable var viewModel: PediatriciansViewModel
     @State private var appearedIDs: Set<User.ID> = []
 
-    init(diContainer: DIContainer) {
-        _viewModel = State(wrappedValue: diContainer.makePediatriciansViewModel())
-    }
+    @Namespace private var animationNamespace
 
     var body: some View {
         VStack(spacing: 15) {
@@ -110,8 +107,8 @@ extension ContentView {
 
 #Preview {
     @Previewable @State var viewModel = PediatriciansViewModel(
-        networkService: NetworkService(cache: CacheService())
+        networkService: NetworkService(cache: CacheService()), router: Router()
     )
 
-    ContentView(diContainer: DIContainer())
+    ContentView(viewModel: viewModel)
 }

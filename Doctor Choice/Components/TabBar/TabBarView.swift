@@ -1,21 +1,22 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @Environment(DIContainer.self) var diContainer
     @Binding var currentScreen: TabItemModel
+    var pediatriciansViewModel: PediatriciansViewModel
 
-    init(currentScreen: Binding<TabItemModel>) {
+    init(
+        currentScreen: Binding<TabItemModel>,
+        pediatriciansViewModel: PediatriciansViewModel
+    ) {
         self._currentScreen = currentScreen
+        self.pediatriciansViewModel = pediatriciansViewModel
 
         UITabBar.appearance().isHidden = true
     }
 
     var body: some View {
         TabView(selection: $currentScreen) {
-            ContentView(diContainer: diContainer)
-            .tag(TabItemModel.home)
-            .environment(diContainer)
-
+            ContentView(viewModel: pediatriciansViewModel).tag(TabItemModel.home)
             Text(currentScreen.title).tag(TabItemModel.clipboard)
             Text(currentScreen.title).tag(TabItemModel.message)
             Text(currentScreen.title).tag(TabItemModel.person)

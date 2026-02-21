@@ -2,13 +2,15 @@ import SwiftUI
 
 @main
 struct Doctor_ChoiceApp: App {
-    @State var diContainer = DIContainer()
+    @State var container = DIContainer()
 
     var body: some Scene {
         WindowGroup {
-            MainScene(diContainer: diContainer).environment(diContainer)
+            TabViewScene(container: container)
+            .environment(\.diContainer, container)
         }
     }
 }
+
 
 

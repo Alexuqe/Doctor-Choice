@@ -2,15 +2,22 @@ import Observation
 
 @Observable
 final class DIContainer {
-    var cacheService: CacheServiceProtocol = CacheService()
-    var networkService: NetworkServiceProtocol { NetworkService(cache: cacheService) }
+    let cacheService: CacheServiceProtocol
+    let router: Routeble
+    let networkService: NetworkServiceProtocol
+
+    init() {
+        self.cacheService = CacheService()
+        self.router = Router()
+        self.networkService = NetworkService(cache: cacheService)
+    }
 
     func makePediatriciansViewModel() -> PediatriciansViewModel {
         PediatriciansViewModel(networkService: networkService)
     }
 
-    func makeMainViewModel() -> MainViewModel {
-        MainViewModel()
+    func makeMainViewModel() -> TabViewSceneViewModel {
+        TabViewSceneViewModel()
     }
 
 }
