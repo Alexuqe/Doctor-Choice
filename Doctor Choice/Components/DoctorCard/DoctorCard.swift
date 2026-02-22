@@ -2,14 +2,17 @@ import SwiftUI
 
 struct DoctorCard: View {
     @Binding var doctor: User
-    @State private var didTimeOut = false
+    @Bindable var viewModel: PediatriciansDetailViewModel
+    private let appointmentAction: () -> Void
 
-    private let timeOut: TimeInterval = 3
-    private var price = 0
-
-    init(doctor: Binding<User>) {
+    init(
+        doctor: Binding<User>,
+        viewModel: PediatriciansDetailViewModel,
+        appointmentAction: @escaping () -> Void,
+    ) {
         self._doctor = doctor
-        price = minPrice()
+        self.viewModel = viewModel
+        self.appointmentAction = appointmentAction
     }
 
     var body: some View {
@@ -23,7 +26,7 @@ struct DoctorCard: View {
             .frame(maxWidth: .infinity, alignment: .leading)
 
             AppointmentButton(
-                action: { },
+                action: appointmentAction,
                 receptionTime: doctor.nearestReceptionTime != nil ? true : false
             )
             .padding(.top, 7)
@@ -35,35 +38,27 @@ struct DoctorCard: View {
             .stroke(lineWidth: 1)
             .fill(ColorStyles.grey)
         }
-        .task {
-           await startTimeOut()
-        }
+        .onAppear { viewModel.minPrice(doctor: doctor) }
+        .task { await viewModel.startTimeOut() }
     }
 }
 
 extension DoctorCard {
     var avatar: some View {
-        AsyncImage(url: URL(string: doctor.avatar ?? "")) { phase in
-            switch phase {
-                case .empty:
-                    if didTimeOut {
-                        defaultImage
-                    } else {
-                        ProgressView()
-                    }
-                case .success(let image):
-                    image
-                    .resizable()
-                    .scaledToFill()
-
-                case .failure:
-                    defaultImage
-                @unknown default:
-                    defaultImage
+        Group {
+            if let image = viewModel.avatarImage(for: doctor) {
+                Image(uiImage: image)
+                .resizable()
+                .scaledToFill()
+            } else if viewModel.didTimeOut {
+                defaultImage
+            } else {
+                ProgressView()
             }
         }
         .frame(width: 50, height: 50)
         .clipShape(.circle)
+        .task(id: doctor.id) { await viewModel.loadAvatar(for: doctor) }
     }
 
     var defaultImage: some View {
@@ -87,7 +82,7 @@ extension DoctorCard {
 
             specializationTitle
 
-            Text("от \(price) ₽")
+            Text("от \(viewModel.price) ₽")
             .font(FontStyle.h4.font)
             .foregroundStyle(ColorStyles.black)
         }
@@ -107,37 +102,4 @@ extension DoctorCard {
             .foregroundStyle(ColorStyles.darkGrey)
         }
     }
-
-
-}
-
-extension DoctorCard {
-    private func minPrice() -> Int {
-        var result = Int.max
-
-        result = min(doctor.textChatPrice, doctor.videoChatPrice)
-
-        if let hospital = doctor.hospitalPrice, let home = doctor.homePrice {
-            let minGeoPrice = min(hospital, home)
-            result = min(result, minGeoPrice)
-        }
-
-        return result
-    }
-
-    private func startTimeOut() async {
-        try? await Task.sleep(nanoseconds: UInt64(timeOut * 1_000_000_000))
-
-        if !Task.isCancelled {
-            didTimeOut = true
-        }
-    }
-}
-
-#Preview {
-    @Previewable @State var viewModel = PediatriciansViewModel(
-        networkService: NetworkService(cache: CacheService())
-    )
-
-    ContentView(diContainer: DIContainer())
 }

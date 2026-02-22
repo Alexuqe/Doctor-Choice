@@ -4,55 +4,86 @@ import SwiftUI
 
 @MainActor
 @Observable final class PediatriciansViewModel {
+    let tabs: [Selection] = Selection.allCases
     var visible: [User] = []
+    var appearedIDs: Set<User.ID> = []
     var isLoading = false
     var isRefreshing = false
     var canLoadMore = true
+ 
+
     var selectedSegment: Selection = .experience {
         didSet {
             filtrated()
         }
     }
 
-    let tabs: [Selection] = Selection.allCases
-
-
     var searchText: String = "" {
         didSet { searchDebounced() }
     }
 
-    @ObservationIgnored private var model: [User] = []
+    /*@ObservationIgnored*/ /*private*/ var model: [User] = []
     @ObservationIgnored private var filtred: [User] = []
     @ObservationIgnored private var currentEnd = 0
     @ObservationIgnored private let pageSize = 3
+    @ObservationIgnored private let timeoutInterval = 3
     @ObservationIgnored private var debounceTask: Task<Void, Never>?
     @ObservationIgnored private var searchedTask: Task<Void, Never>?
+    @ObservationIgnored private var paginationTask: Task<Void, Never>?
 
     @ObservationIgnored private let networkService: NetworkServiceProtocol
     @ObservationIgnored private let router: Routeble
+   
 
-    init(networkService: NetworkServiceProtocol, router: Routeble) {
+    init(
+        networkService: NetworkServiceProtocol,
+        router: Routeble,
+    ) {
         self.networkService = networkService
         self.router = router
 
         Task { await load() }
     }
 
+    func handleAppear(index: Int, doctor: User) {
+        if !appearedIDs.contains(doctor.id) {
+            appearedIDs.insert(doctor.id)
+        }
+
+        let threshold = visible.count - 2
+
+        if index == threshold {
+            loadMoreDebounced()
+        }
+    }
+
     func openDoctorDetail(for user: User) {
         router.push(to: .main(.pediatricianDetail(user)))
     }
+}
 
-    func binding(for user: User) -> Binding<User> {
-        Binding(
-            get: {
-                self.visible.first(where: { $0.id == user.id }) ?? user
-            },
-            set: { updated in
-                if let index = self.visible.firstIndex(where: { $0.id == user.id }) {
-                    self.visible[index] = updated
-                }
-            }
-        )
+// - Network
+extension PediatriciansViewModel {
+    private func load() async {
+        print("⬇️ load() called")
+
+        do {
+            let pediatric: Pediatricians = try await networkService.fetchUsers(url: .default)
+            model = pediatric.data.users
+            print("📦 loaded model:", model.count)
+
+            applyFilter()
+            print("🔍 filtered:", filtred.count)
+
+            resetPaging()
+
+            await Task.yield()
+
+            await appendNextPage()
+            print("👀 visible:", visible.count)
+        } catch {
+            print("❌ Ошибка обновления:", error)
+        }
     }
 
     func refresh() async {
@@ -73,7 +104,10 @@ import SwiftUI
 
         await load()
     }
+}
 
+// - Pagging
+extension PediatriciansViewModel {
     func loadMoreDebounced() {
         guard canLoadMore, !isLoading, !isRefreshing else { return }
 
@@ -81,28 +115,6 @@ import SwiftUI
         debounceTask = Task {
             try? await Task.sleep(nanoseconds: 250_000_000)
             await appendNextPage()
-        }
-    }
-
-    private func load() async {
-        print("⬇️ load() called")
-
-        do {
-            let pediatric: Pediatricians = try await networkService.fetchUsers(url: .default)
-            model = pediatric.data.users
-            print("📦 loaded model:", model.count)
-
-            applyFilter()
-            print("🔍 filtered:", filtred.count)
-
-            resetPaging()
-
-            await Task.yield()
-            
-            await appendNextPage()
-            print("👀 visible:", visible.count)
-        } catch {
-            print("❌ Ошибка обновления:", error)
         }
     }
 
@@ -134,6 +146,22 @@ import SwiftUI
         canLoadMore = !filtred.isEmpty
     }
 
+    private func searchDebounced() {
+        searchedTask?.cancel()
+        searchedTask = Task { [weak self] in
+            try? await Task.sleep(nanoseconds: 300_000_000)
+
+            guard let self else { return }
+            applyFilter()
+            resetPaging()
+
+            await appendNextPage()
+        }
+    }
+}
+
+// - Filtrating
+extension PediatriciansViewModel  {
     private func applyFilter() {
         let text = searchText
             .trimmingCharacters(in: .whitespacesAndNewlines)
@@ -148,19 +176,6 @@ import SwiftUI
         }
     }
 
-    private func searchDebounced() {
-        searchedTask?.cancel()
-        searchedTask = Task { [weak self] in
-            try? await Task.sleep(nanoseconds: 300_000_000)
-
-            guard let self else { return }
-            applyFilter()
-            resetPaging()
-
-            await appendNextPage()
-        }
-    }
-
     private func filtrated() {
         switch selectedSegment {
             case .price:
@@ -171,9 +186,30 @@ import SwiftUI
                 visible.sort { $0.rank > $1.rank }
         }
 
+        paginationTask?.cancel()
+
         Task {
             await appendNextPage()
+            if !Task.isCancelled {
+                paginationTask = nil
+            }
         }
+    }
+}
+
+// - Helper
+extension PediatriciansViewModel {
+    func binding(for user: User) -> Binding<User> {
+        Binding(
+            get: {
+                self.visible.first(where: { $0.id == user.id }) ?? user
+            },
+            set: { updated in
+                if let index = self.visible.firstIndex(where: { $0.id == user.id }) {
+                    self.visible[index] = updated
+                }
+            }
+        )
     }
 
 }

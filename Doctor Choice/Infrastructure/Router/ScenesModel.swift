@@ -4,4 +4,5 @@ enum AppScenes: Hashable {
 
 enum MainSceneRoute: Hashable {
     case pediatricianDetail(User)
+    case priceDetail(User)
 }
